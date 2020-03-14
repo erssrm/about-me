@@ -209,17 +209,23 @@
     // calculate objects intersecting the picking ray
     var intersects = raycaster.intersectObjects(scene.children, true);
 
-    if (intersects[0]) {
-      var object = intersects[0].object;
-
-      if (object.name === 'stacy') {
-
-        if (!currentlyAnimating) {
-          currentlyAnimating = true;
-          playOnClick();
-        }
-      }
+    //play on click
+    if (!currentlyAnimating) {
+      currentlyAnimating = true;
+      playOnClick();
     }
+    // uncomment play click on 3D object
+    // if (intersects[0]) {
+    //   var object = intersects[0].object;
+
+    //   if (object.name === 'stacy') {
+
+    //     if (!currentlyAnimating) {
+    //       currentlyAnimating = true;
+    //       playOnClick();
+    //     }
+    //   }
+    // }
   }
 
   // Get a random animation, and play it 
