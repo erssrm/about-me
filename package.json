@@ -4,6 +4,7 @@
   "description": "my resume",
   "main": "index.js",
   "scripts": {
+    "start": "./node_modules/.bin/live-server",
     "watch": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/erssrm/about-me/issues"
   },
-  "homepage": "https://github.com/erssrm/about-me#readme"
+  "homepage": "https://github.com/erssrm/about-me#readme",
+  "dependencies": {
+    "live-server": "^1.2.1"
+  }
 }
