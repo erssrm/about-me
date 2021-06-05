@@ -11,8 +11,9 @@ var treeData = [
             "parent": "Contact",
             "_children": [
               {
-                "name": "mysore karnataka\nasdasdasdasd, sdfsdf sdfsd\nsdfsdfsder , erfdfsdfsdf\nthis is not good for the help you are ",
-                "url": "https://www.youtube.com/v/jrKA3cJmoms"
+                "name": "is not good for the help you are ",
+                "url": "https://www.youtube.com/v/jrKA3cJmoms",
+                "data": ["smruti", "ranjan", "mohanta"]
               }
             ]
           },
