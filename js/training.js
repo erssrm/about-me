@@ -154,10 +154,62 @@ function click(d) {
     if (d.children) {
         d._children = d.children;
         d.children = null;
-    } else {
+    } else if (d._children) {
         d.children = d._children;
         d._children = null;
+    } else {
+        showPopup(d);
     }
     update(d);
+}
+
+function showPopup(d) {
+    var popup = document.getElementById("popup");
+    var popupDetails = document.getElementById("popup-details");
+    var closeBtn = document.getElementsByClassName("close")[0];
+
+    // Clear previous details
+    popupDetails.innerHTML = "";
+
+    // Add node details
+    var title = document.createElement("h3");
+    title.textContent = d.name;
+    popupDetails.appendChild(title);
+
+    // details if available
+    if (d.details) {
+        var p = document.createElement("p");
+        p.textContent = d.details;
+        popupDetails.appendChild(p);
+    }
+
+    if (d.data && d.data.length) {
+        var ul = document.createElement("ul");
+        d.data.forEach(function (detail) {
+            var li = document.createElement("li");
+            li.textContent = detail;
+            ul.appendChild(li);
+        });
+        popupDetails.appendChild(ul);
+    } else {
+        var p = document.createElement("p");
+        p.textContent = "No additional details available.";
+        popupDetails.appendChild(p);
+    }
+
+    // Show the popup
+    popup.style.display = "block";
+
+    // Close the popup when the user clicks on <span> (x)
+    closeBtn.onclick = function () {
+        popup.style.display = "none";
+    };
+
+    // Close the popup when the user clicks anywhere outside of the popup
+    window.onclick = function (event) {
+        if (event.target == popup) {
+            popup.style.display = "none";
+        }
+    };
 }
 
