@@ -61,11 +61,11 @@ function update(source) {
             if (d.url != null) { return 'hyper'; }
         })
         .on("click", function (d) {
-            var innerNode = function() {
-                var li ="";
-                if(d.data.length) {
-                    d.data.forEachs((val)=>{
-                       li =  li.concat(`<li>${val}<li>`);
+            var innerNode = function () {
+                var li = "";
+                if (d.data.length) {
+                    d.data.forEachs((val) => {
+                        li = li.concat(`<li>${val}<li>`);
                     })
                 }
                 return li;
@@ -176,25 +176,83 @@ function showPopup(d) {
     title.textContent = d.name;
     popupDetails.appendChild(title);
 
-    // details if available
-    if (d.details) {
-        var p = document.createElement("p");
-        p.textContent = d.details;
-        popupDetails.appendChild(p);
+    // Add duration and link
+    if (d.duration || d.link) {
+        var infoDiv = document.createElement("div");
+        infoDiv.style.display = "flex";
+        infoDiv.style.justifyContent = "space-between";
+        infoDiv.style.alignItems = "center";
+
+        if (d.duration) {
+            var duration = document.createElement("span");
+            duration.textContent = d.duration;
+            infoDiv.appendChild(duration);
+        }
+
+        if (d.link) {
+            var link = document.createElement("a");
+            link.href = d.link;
+            link.textContent = "Project Link";
+            link.target = "_blank";
+            infoDiv.appendChild(link);
+        }
+
+        popupDetails.appendChild(infoDiv);
     }
 
-    if (d.data && d.data.length) {
-        var ul = document.createElement("ul");
-        d.data.forEach(function (detail) {
-            var li = document.createElement("li");
-            li.textContent = detail;
-            ul.appendChild(li);
-        });
-        popupDetails.appendChild(ul);
-    } else {
-        var p = document.createElement("p");
-        p.textContent = "No additional details available.";
-        popupDetails.appendChild(p);
+    // Add details
+    if (d.details) {
+        var details = document.createElement("p");
+        details.textContent = d.details;
+        details.style.width = "100%";
+        popupDetails.appendChild(details);
+    }
+
+    // Add technology used and images
+    if (d.data || d.images) {
+        var container = document.createElement("div");
+        container.style.display = "flex";
+        container.style.justifyContent = "space-between";
+
+        if (d.data) {
+            var techDiv = document.createElement("div");
+            var techHeading = document.createElement("h4");
+            techHeading.textContent = "Technology Used";
+            techDiv.appendChild(techHeading);
+
+            var ul = document.createElement("ul");
+            d.data.forEach(function (tech) {
+                var li = document.createElement("li");
+                li.textContent = tech;
+                ul.appendChild(li);
+            });
+            techDiv.appendChild(ul);
+            container.appendChild(techDiv);
+        }
+
+        if (d.images) {
+            var imgDiv = document.createElement("div");
+            var imgHeading = document.createElement("h4");
+            imgHeading.textContent = "Images";
+            imgDiv.appendChild(imgHeading);
+
+            d.images.forEach(function (imgSrc, index) {
+                var img = document.createElement("img");
+                img.src = imgSrc;
+                img.style.width = "100px";
+                img.style.height = "auto";
+                img.style.margin = "5px";
+                img.style.cursor = "pointer";
+                img.onclick = function () {
+                    showImageGallery(d.images, index);
+                };
+                imgDiv.appendChild(img);
+            });
+
+            container.appendChild(imgDiv);
+        }
+
+        popupDetails.appendChild(container);
     }
 
     // Show the popup
@@ -213,3 +271,71 @@ function showPopup(d) {
     };
 }
 
+function showImageGallery(images, startIndex) {
+    var galleryPopup = document.createElement("div");
+    galleryPopup.id = "gallery-popup";
+    galleryPopup.style.position = "fixed";
+    galleryPopup.style.top = "0";
+    galleryPopup.style.left = "0";
+    galleryPopup.style.width = "100%";
+    galleryPopup.style.height = "100%";
+    galleryPopup.style.backgroundColor = "rgba(255,255,255,0.8)";
+    galleryPopup.style.display = "flex";
+    galleryPopup.style.justifyContent = "center";
+    galleryPopup.style.alignItems = "center";
+    galleryPopup.style.zIndex = "5000";
+
+    var imgIndex = startIndex;
+
+    var imgContainer = document.createElement("div");
+    imgContainer.style.position = "relative";
+
+    var img = document.createElement("img");
+    img.src = images[imgIndex];
+    img.style.maxWidth = "90%";
+    img.style.maxHeight = "90%";
+    imgContainer.appendChild(img);
+
+    var prevBtn = document.createElement("button");
+    prevBtn.textContent = "Previous";
+    prevBtn.style.position = "absolute";
+    prevBtn.style.top = "50%";
+    prevBtn.style.left = "0";
+    prevBtn.style.transform = "translateY(-50%)";
+    prevBtn.style.backgroundColor = "rgba(255,255,255,0.5)";
+    prevBtn.onclick = function () {
+        imgIndex = (imgIndex - 1 + images.length) % images.length;
+        img.src = images[imgIndex];
+    };
+
+    var nextBtn = document.createElement("button");
+    nextBtn.textContent = "Next";
+    nextBtn.style.position = "absolute";
+    nextBtn.style.top = "50%";
+    nextBtn.style.right = "0";
+    nextBtn.style.transform = "translateY(-50%)";
+    nextBtn.style.backgroundColor = "rgba(255,255,255,0.5)";
+    nextBtn.onclick = function () {
+        imgIndex = (imgIndex + 1) % images.length;
+        img.src = images[imgIndex];
+    };
+
+    var closeBtn = document.createElement("span");
+    closeBtn.textContent = "Close";
+    closeBtn.style.position = "absolute";
+    closeBtn.style.top = "10px";
+    closeBtn.style.right = "20px";
+    closeBtn.style.fontSize = "20px";
+    closeBtn.style.color = "white";
+    closeBtn.style.cursor = "pointer";
+    closeBtn.style.backgroundColor = "rgba(0,0,0,1)";
+    closeBtn.onclick = function () {
+        document.body.removeChild(galleryPopup);
+    };
+
+    imgContainer.appendChild(prevBtn);
+    imgContainer.appendChild(nextBtn);
+    galleryPopup.appendChild(imgContainer);
+    galleryPopup.appendChild(closeBtn);
+    document.body.appendChild(galleryPopup);
+}

@@ -1,18 +1,18 @@
 (function () {
   // Set our main variables
   let scene,
-  renderer,
-  camera,
-  model, // Our character
-  neck, // Reference to the neck bone in the skeleton
-  waist, // Reference to the waist bone in the skeleton
-  possibleAnims, // Animations found in our file
-  mixer, // THREE.js animations mixer
-  idle, // Idle, the default state our character returns to
-  clock = new THREE.Clock(), // Used for anims, which run to a clock instead of frame rate 
-  currentlyAnimating = false, // Used to check whether characters neck is being used in another anim
-  raycaster = new THREE.Raycaster(), // Used to detect the click on our character
-  loaderAnim = document.getElementById('js-loader');
+    renderer,
+    camera,
+    model, // Our character
+    neck, // Reference to the neck bone in the skeleton
+    waist, // Reference to the waist bone in the skeleton
+    possibleAnims, // Animations found in our file
+    mixer, // THREE.js animations mixer
+    idle, // Idle, the default state our character returns to
+    clock = new THREE.Clock(), // Used for anims, which run to a clock instead of frame rate 
+    currentlyAnimating = false, // Used to check whether characters neck is being used in another anim
+    raycaster = new THREE.Raycaster(), // Used to detect the click on our character
+    loaderAnim = document.getElementById('js-loader');
 
   init();
 
@@ -35,10 +35,10 @@
 
     // Add a camera
     camera = new THREE.PerspectiveCamera(
-    50,
-    window.innerWidth / window.innerHeight,
-    0.1,
-    1000);
+      50,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000);
 
     camera.position.z = 30;
     camera.position.x = 0;
@@ -50,68 +50,69 @@
     const stacy_mtl = new THREE.MeshPhongMaterial({
       map: stacy_txt,
       color: 0xffffff,
-      skinning: true });
+      skinning: true
+    });
 
 
 
     var loader = new THREE.GLTFLoader();
 
     loader.load(
-    MODEL_PATH,
-    function (gltf) {
-      model = gltf.scene;
-      let fileAnimations = gltf.animations;
+      MODEL_PATH,
+      function (gltf) {
+        model = gltf.scene;
+        let fileAnimations = gltf.animations;
 
-      model.traverse(o => {
+        model.traverse(o => {
 
-        if (o.isMesh) {
-          o.castShadow = true;
-          o.receiveShadow = true;
-          o.material = stacy_mtl;
-        }
-        // Reference the neck and waist bones
-        if (o.isBone && o.name === 'mixamorigNeck') {
-          neck = o;
-        }
-        if (o.isBone && o.name === 'mixamorigSpine') {
-          waist = o;
-        }
+          if (o.isMesh) {
+            o.castShadow = true;
+            o.receiveShadow = true;
+            o.material = stacy_mtl;
+          }
+          // Reference the neck and waist bones
+          if (o.isBone && o.name === 'mixamorigNeck') {
+            neck = o;
+          }
+          if (o.isBone && o.name === 'mixamorigSpine') {
+            waist = o;
+          }
+        });
+
+        model.scale.set(7, 7, 7);
+        model.position.y = -11;
+
+        scene.add(model);
+
+        loaderAnim.remove();
+
+        mixer = new THREE.AnimationMixer(model);
+
+        let clips = fileAnimations.filter(val => val.name !== 'idle');
+        possibleAnims = clips.map(val => {
+          let clip = THREE.AnimationClip.findByName(clips, val.name);
+
+          clip.tracks.splice(3, 3);
+          clip.tracks.splice(9, 3);
+
+          clip = mixer.clipAction(clip);
+          return clip;
+        });
+
+
+        let idleAnim = THREE.AnimationClip.findByName(fileAnimations, 'idle');
+
+        idleAnim.tracks.splice(3, 3);
+        idleAnim.tracks.splice(9, 3);
+
+        idle = mixer.clipAction(idleAnim);
+        idle.play();
+
+      },
+      undefined, // We don't need this function
+      function (error) {
+        console.error(error);
       });
-
-      model.scale.set(7, 7, 7);
-      model.position.y = -11;
-
-      scene.add(model);
-
-      loaderAnim.remove();
-
-      mixer = new THREE.AnimationMixer(model);
-
-      let clips = fileAnimations.filter(val => val.name !== 'idle');
-      possibleAnims = clips.map(val => {
-        let clip = THREE.AnimationClip.findByName(clips, val.name);
-
-        clip.tracks.splice(3, 3);
-        clip.tracks.splice(9, 3);
-
-        clip = mixer.clipAction(clip);
-        return clip;
-      });
-
-
-      let idleAnim = THREE.AnimationClip.findByName(fileAnimations, 'idle');
-
-      idleAnim.tracks.splice(3, 3);
-      idleAnim.tracks.splice(9, 3);
-
-      idle = mixer.clipAction(idleAnim);
-      idle.play();
-
-    },
-    undefined, // We don't need this function
-    function (error) {
-      console.error(error);
-    });
 
 
     // Add lights
@@ -135,11 +136,12 @@
     scene.add(dirLight);
 
 
-    // Floor
+    // Floor with shadows
     let floorGeometry = new THREE.PlaneGeometry(5000, 5000, 1, 1);
     let floorMaterial = new THREE.MeshPhongMaterial({
       color: 0xeeeeee,
-      shininess: 0 });
+      shininess: 0
+    });
 
 
     let floor = new THREE.Mesh(floorGeometry, floorMaterial);
@@ -156,6 +158,27 @@
     sphere.position.y = -2.5;
     sphere.position.x = -0.25;
     scene.add(sphere);
+    // Load font and create text geometry
+    const textLoader = new THREE.FontLoader();
+    textLoader.load('fonts/Roboto Light_Regular.json', function (font) {
+      const textGeometry = new THREE.TextGeometry(
+        "Welcome to Smruti Ranjan's Profile.\nI am Smruti Ranjan, a JavaScript enthusiast with a passion for learning new technologies.JavaScript is my oxygen, and experimenting is my heartbeat.\nI like to spend my spare time with my crush, YAMAHA R15.",
+        {
+          font: font,
+          size: 0.5,
+          height: 0.1,
+          curveSegments: 30,
+          bevelEnabled: false
+        }
+      );
+
+      const textMaterial = new THREE.MeshBasicMaterial({ color: 0x0000ff });
+      const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+
+      textMesh.position.set(-20, 14, -10);
+      scene.add(textMesh);
+    });
+
   }
 
 
@@ -184,7 +207,7 @@
     let canvasPixelHeight = canvas.height / window.devicePixelRatio;
 
     const needResize =
-    canvasPixelWidth !== width || canvasPixelHeight !== height;
+      canvasPixelWidth !== width || canvasPixelHeight !== height;
     if (needResize) {
       renderer.setSize(width, height, false);
     }
@@ -268,11 +291,11 @@
 
   function getMouseDegrees(x, y, degreeLimit) {
     let dx = 0,
-    dy = 0,
-    xdiff,
-    xPercentage,
-    ydiff,
-    yPercentage;
+      dy = 0,
+      xdiff,
+      xPercentage,
+      ydiff,
+      yPercentage;
 
     let w = { x: window.innerWidth, y: window.innerHeight };
 
