@@ -5,10 +5,11 @@ var treeData = [
     "children": [
       {
         "name": "Skills",
-        "children": [
+        "parent": null,
+        "_children": [
           {
             "name": "Languages",
-            "parent": null,
+            "parent": "Skills",
             "details": "I have experience in the following languages",
             "data": ["JavaScript", "TypeScript", "SQL"],
             // "_children": [
@@ -21,7 +22,7 @@ var treeData = [
           },
           {
             "name": "Web/Mobile Development",
-            "parent": "null",
+            "parent": "Smruti Ranjan",
             "data": ["React", "React Native", "Node", "HTML", "CSS", "SASS", "LESS", "Bootstrap", "Materialize", "Material-UI"],
             // "_children": [
             //   {
@@ -49,7 +50,8 @@ var treeData = [
       },
       {
         "name": "Education",
-        "children": [
+        "parent": null,
+        "_children": [
           {
             "name": "M.tech",
             "parent": "null",
@@ -83,13 +85,13 @@ var treeData = [
         "parent": "null",
         "_children": [
           {
-            "name": "Consultant (Feb 2021 – Present)",
+            "name": "Globallogic(Consultant) Feb 2021 – Present",
             "parent": "null",
             "data": ["Deloitte USI"],
 
           },
           {
-            "name": "Senior Software Engineer (Feb 2019 – Feb 2021)",
+            "name": "L&T Technology service - (Senior Software Engineer) (Feb 2019 – Feb 2021)",
             "parent": "null",
             "data": ["L&T Infotech"],
           },
@@ -105,8 +107,12 @@ var treeData = [
         "_children": [
           {
             "name": "Diligent Minutes (Mar 2024)",
+            "duration": "March 2024 - Present",
+            "link": "https://www.diligent.com/board-management-software",
+            "details": "Diligent Minutes is a board management software that helps organizations to streamline the board meeting process and improve governance. It is a secure platform that allows users to access board materials and meeting minutes from any device. a board management software that helps organizations to streamline the board meeting process and improve governance. It is a secure platform that allows users to access board materials and meeting minutes from any device. a board management software that helps organizations to streamline the board meeting process and improve governance. It is a secure platform that allows users to access board materials and meeting minutes from any device. a board management software that helps organizations to streamline the board meeting process and improve governance. It is a secure platform that allows users to access board materials and meeting minutes from any device.",
             "parent": null,
             "data": ["React", "Redux", "Storybook", "Material UI", "Node.js"],
+            "images": ["images/diligent-minutes.png", "images/diligent-minutes-2.jpg", "images/diligent-minutes-3.jpg", "images/diligent-minutes-4.jpg"]
           },
           {
             "name": "One Airtel (Jan 2022)",
