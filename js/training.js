@@ -178,7 +178,7 @@ function showPopup(d) {
 
     // Add duration and link
     if (d.duration || d.link) {
-        var infoDiv = document.createElement("div");
+        var infoDiv = document.createElement("h5");
         infoDiv.style.display = "flex";
         infoDiv.style.justifyContent = "space-between";
         infoDiv.style.alignItems = "center";
@@ -192,7 +192,7 @@ function showPopup(d) {
         if (d.link) {
             var link = document.createElement("a");
             link.href = d.link;
-            link.textContent = "Project Link";
+            link.textContent = "Link";
             link.target = "_blank";
             infoDiv.appendChild(link);
         }
@@ -203,8 +203,21 @@ function showPopup(d) {
     // Add details
     if (d.details) {
         var details = document.createElement("p");
-        details.textContent = d.details;
         details.style.width = "100%";
+
+        //if d.details type is array the loop through the array and add the details in the list
+        if (Array.isArray(d.details)) {
+            var ul = document.createElement("ul");
+            d.details.forEach(function (detail) {
+                var li = document.createElement("li");
+                li.textContent = detail;
+                ul.appendChild(li);
+            });
+            details.appendChild(ul);
+        } else {
+            details.textContent = d.details;
+        }
+
         popupDetails.appendChild(details);
     }
 
@@ -217,7 +230,8 @@ function showPopup(d) {
         if (d.data) {
             var techDiv = document.createElement("div");
             var techHeading = document.createElement("h4");
-            techHeading.textContent = "Technology Used";
+            //Based on the data type we can change the heading
+            techHeading.textContent = getDataListHeading(d) 
             techDiv.appendChild(techHeading);
 
             var ul = document.createElement("ul");
@@ -271,6 +285,18 @@ function showPopup(d) {
     };
 }
 
+//Function to change the heading based on the parent type
+function getDataListHeading(data) {
+    const headings = {
+        Projects: "Technology Used",
+        Education: "Courses",
+        Experience: "Skills",
+        Skills: "Tools",
+    };
+
+    return headings[data.parent.name] || "";
+}
+
 function showImageGallery(images, startIndex) {
     var galleryPopup = document.createElement("div");
     galleryPopup.id = "gallery-popup";
@@ -320,15 +346,12 @@ function showImageGallery(images, startIndex) {
         img.src = images[imgIndex];
     };
 
-    var closeBtn = document.createElement("span");
+    var closeBtn = document.createElement("button");
     closeBtn.textContent = "Close";
     closeBtn.style.position = "absolute";
     closeBtn.style.top = "10px";
     closeBtn.style.right = "20px";
-    closeBtn.style.fontSize = "20px";
-    closeBtn.style.color = "white";
     closeBtn.style.cursor = "pointer";
-    closeBtn.style.backgroundColor = "rgba(0,0,0,1)";
     closeBtn.onclick = function () {
         document.body.removeChild(galleryPopup);
     };
