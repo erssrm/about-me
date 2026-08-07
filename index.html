@@ -1,52 +1,703 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Smruti Ranjan's Profile</title>
-	<meta name="description" content="Smruti Ranjan Mohanta career details" />
-	<meta name="keywords" content="smruti ranjan mohanta, javascript developer, frontend developer" />
-	<meta name="author" content="Smuti Ranjan" />
-	<link rel="shortcut icon" href="favicon.ico">
-	<link rel="stylesheet" type="text/css" href="css/base.css" />
-	<script>document.documentElement.className = "js"; var supportsCssVars = function () { var e, t = document.createElement("style"); return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e }; supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
-	<!--Script for resume-->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" />
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-	<link href="css/training.css" rel="stylesheet" />
-	<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.js"></script>
-	<!--Script for resume-->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smruti Ranjan Mohanta — Frontend Architect & Agentic AI Engineer</title>
+  <meta name="description"
+    content="Smruti Ranjan Mohanta — Frontend Architect & Agentic AI Engineer with 10+ years building web, mobile, and Agentic AI products. React, TypeScript, Node.js, LangChain, RAG, AWS. Based in Bengaluru, India." />
+  <meta name="keywords"
+    content="Smruti Ranjan Mohanta, frontend architect, agentic ai engineer, forward deployed engineer, javascript developer, react developer, node.js developer, langchain, RAG, LLM, generative AI, claude plugins, tech lead, Bengaluru, Bangalore" />
+  <meta name="author" content="Smruti Ranjan Mohanta" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://erssrm.github.io/about-me/" />
+
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Smruti Ranjan Mohanta — Frontend Architect & Agentic AI Engineer" />
+  <meta property="og:description"
+    content="Frontend Architect & Agentic AI Engineer with 10+ years building web, mobile, and Agentic AI products. React, TypeScript, Node.js, LangChain, RAG, AWS." />
+  <meta property="og:image" content="https://erssrm.github.io/about-me/images/self.jpeg" />
+  <meta property="og:url" content="https://erssrm.github.io/about-me/" />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="shortcut icon" href="favicon.ico" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/main.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Smruti Ranjan Mohanta",
+    "url": "https://erssrm.github.io/about-me/",
+    "image": "https://erssrm.github.io/about-me/images/self.jpeg",
+    "jobTitle": "Frontend Architect & Agentic AI Engineer",
+    "email": "mailto:er.ssrm@gmail.com",
+    "telephone": "+91-7204995711",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bengaluru",
+      "addressRegion": "Karnataka",
+      "addressCountry": "IN"
+    },
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Accenture"
+    },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Indian Institute of Technology, Patna" },
+      { "@type": "CollegeOrUniversity", "name": "Biju Patnaik University of Technology, Odisha" }
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/in/erssrm",
+      "https://github.com/erssrm"
+    ],
+    "knowsAbout": ["JavaScript", "React", "Node.js", "TypeScript", "AWS", "Agentic AI", "LangChain", "RAG", "LLM", "WebGL", "Three.js", "IoT", "Team Leadership"]
+  }
+  </script>
 </head>
 
-<body style="position: relative;">
-	<div class="loading" id="js-loader">
-		<div class="loader"></div>
-	</div>
-	<div class="wrapper">
-		<!-- The canvas element is used to draw the 3D scene -->
-		<canvas id="c"></canvas>
-	</div>
-	<!-- <span class="action">Hey,I am observing you</span> -->
-	<div class="col-md-8" style="position: absolute; z-index: 999"> <span id='tree'></span></div>
-	<div class="col-md-8" id="vid-container"></div>
-	<div id="popup" class="popup">
-		<div class="popup-content">
-			<span class="close">&times;</span>
-			<div id="popup-details"></div>
-		</div>
-	</div>
-	<!-- The main Three.js file -->
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/108/three.min.js'></script>
-	<!-- This brings in the ability to load custom 3D objects in the .gltf file format. Blender allows the ability to export to this format out the box -->
-	<script src='https://cdn.jsdelivr.net/gh/mrdoob/Three.js@r92/examples/js/loaders/GLTFLoader.js'></script>
-	<!-- partial -->
-	<script src="js/script.js"></script>
-	<!--Script for resume-->
-	<script src='js/training-data.js'></script>
-	<script src='js/training.js'></script>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__brand" href="#top">
+        <strong>Smruti Ranjan Mohanta</strong>
+        <span>/ frontend architect</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__links" id="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+          </svg>
+        </button>
+        <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            aria-hidden="true">
+            <path d="M3 6h18M3 12h18M3 18h18" />
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============================= HERO ============================= -->
+    <section id="top" class="hero" aria-label="Introduction">
+      <div class="container hero__grid">
+        <div>
+          <div class="hero__intro">
+            <img class="hero__avatar" src="images/self.jpeg" alt="Portrait of Smruti Ranjan Mohanta" />
+            <p class="eyebrow" style="margin:0;">Frontend Architect &amp; Agentic AI Engineer</p>
+          </div>
+          <h1>Smruti Ranjan Mohanta</h1>
+          <p class="hero__tagline">
+            I build web, mobile, and Agentic AI products — from pixel-level 3D rendering to production
+            LangChain/RAG systems — and lead the teams that ship them. 10+ years across fullstack
+            architecture and applied AI.
+          </p>
+          <div class="chip-row">
+            <a class="chip chip--accent" href="mailto:er.ssrm@gmail.com">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18v12H3z"/><path d="m3 7 9 6 9-6"/></svg>
+              Email me
+            </a>
+            <a class="chip" href="https://wa.me/917204995711" target="_blank" rel="noopener">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              WhatsApp
+            </a>
+            <a class="chip" href="https://www.linkedin.com/in/erssrm" target="_blank" rel="noopener">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="3.5"/><line x1="7" y1="10.5" x2="7" y2="17"/><circle cx="7" cy="6.8" r="1.1" fill="currentColor" stroke="none"/><path d="M11 17v-4.2c0-1.5 1-2.6 2.5-2.6s2.5 1.1 2.5 2.6V17"/></svg>
+              LinkedIn
+            </a>
+            <a class="chip" href="https://github.com/erssrm" target="_blank" rel="noopener">
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+              GitHub
+            </a>
+            <a class="chip" href="resume.pdf" target="_blank" rel="noopener">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+              Resume (PDF)
+            </a>
+          </div>
+        </div>
+
+        <aside class="spec-sheet" aria-label="Quick facts">
+          <p class="spec-sheet__title">// SPEC</p>
+          <dl>
+            <dt>Role</dt>
+            <dd>Frontend Architect</dd>
+            <dt>Experience</dt>
+            <dd>10+ years</dd>
+            <dt>Team led</dt>
+            <dd>8+ engineers</dd>
+            <dt>Core stack</dt>
+            <dd>React · TypeScript · Node.js · AWS</dd>
+            <dt>AI stack</dt>
+            <dd>Agentic AI · LangChain · RAG</dd>
+            <dt>Location</dt>
+            <dd>Bengaluru, IN</dd>
+            <dt>Status</dt>
+            <dd class="status">Open to new opportunities</dd>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============================= ABOUT ============================= -->
+    <section id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow">// About</p>
+          <h2 id="about-heading">A decade of shipping production software</h2>
+        </div>
+        <div class="about__body">
+          <p>
+            I'm a frontend architect with 10+ years of experience building production web and mobile
+            applications, and I've spent the last two years going deep on Agentic AI — building
+            LangChain/RAG-powered applications and the UI layers that make LLM output usable in production.
+            Earlier in my career I led application architecture and an 8-person cross-functional team at
+            GlobalLogic, and built 3D visualization and IoT systems for industrial clients.
+          </p>
+          <p>
+            I care about clean architecture, fast CI pipelines, and interfaces that hold up under real
+            users — I cut one team's CI build time from 45 minutes to under 10, and I'm comfortable owning
+            a feature from requirements through to production. I'm currently at Accenture as an AI Forward
+            Deployed Engineer, embedded with Ford's unified billing system team to speed up delivery by
+            weaving agentic workflows into their SDLC.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= EXPERIENCE ============================= -->
+    <section id="experience" aria-labelledby="experience-heading">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow">// Experience</p>
+          <h2 id="experience-heading">Where I've worked</h2>
+        </div>
+
+        <ol class="timeline">
+          <li class="timeline__item">
+            <div class="timeline__head">
+              <span class="timeline__role">AI Forward Deployed Engineer</span>
+              <a class="timeline__org" href="https://www.accenture.com/" target="_blank" rel="noopener">Accenture</a>
+            </div>
+            <p class="timeline__meta">Jul 2024 – Present · Bengaluru, India</p>
+            <ul class="timeline__list">
+              <li>Architected a reusable UI framework to visualize and manage Agentic AI workflows, cutting integration effort for new Agentic apps by 60%.</li>
+              <li>Built multiple Agentic AI applications showcasing industrial use cases — led the product recommender for BMW (automotive industry), one of the flagship builds.</li>
+              <li>Worked across the Agentic AI stack — LangChain, RAG pipelines, and UI integration — connecting LLM reasoning to production-ready interfaces.</li>
+              <li>Converted applications into reusable Claude Skills and plugins, packaging Agentic workflows so other teams could adopt them directly.</li>
+              <li>Currently embedded with Ford's unified billing system as an AI Forward Deployed Engineer, helping the team speed up delivery by weaving agentic workflows into their SDLC.</li>
+              <li>Mentored frontend engineers on best practices for AI-driven interfaces, improving team delivery velocity by 20%.</li>
+            </ul>
+            <div class="tag-row">
+              <span class="tag">Agentic AI</span>
+              <span class="tag">LangChain</span>
+              <span class="tag">RAG</span>
+              <span class="tag">Claude Skills &amp; Plugins</span>
+              <span class="tag">React</span>
+              <span class="tag">TypeScript</span>
+            </div>
+          </li>
+
+          <li class="timeline__item">
+            <div class="timeline__head">
+              <span class="timeline__role">Consultant</span>
+              <a class="timeline__org" href="https://www.globallogic.com/" target="_blank" rel="noopener">GlobalLogic</a>
+            </div>
+            <p class="timeline__meta">Feb 2021 – May 2024 · Bengaluru, India</p>
+            <ul class="timeline__list">
+              <li>Managed and led an 8-member cross-functional team across all stages of the product lifecycle.</li>
+              <li>Led application architecture and design, cutting CI pipeline build time from 45 minutes to under 10.</li>
+              <li>Implemented WOPI integration for seamless MS Word editing inside the application.</li>
+              <li>Built out unit and integration testing plus SonarQube static analysis in the CI pipeline, keeping releases stable every 2 sprints.</li>
+              <li>Set up a Turborepo monorepo for the frontend applications, improving codebase management.</li>
+            </ul>
+            <div class="tag-row">
+              <span class="tag">Team Leadership</span>
+              <span class="tag">Architecture</span>
+              <span class="tag">CI/CD</span>
+              <span class="tag">SonarQube</span>
+              <span class="tag">Turborepo</span>
+            </div>
+          </li>
+
+          <li class="timeline__item">
+            <div class="timeline__head">
+              <span class="timeline__role">Senior Software Developer</span>
+              <a class="timeline__org" href="https://www.ltts.com/" target="_blank" rel="noopener">L&amp;T Technology Services</a>
+            </div>
+            <p class="timeline__meta">Feb 2019 – Feb 2021 · Mysore, India</p>
+            <ul class="timeline__list">
+              <li>Led development of a cross-platform IoT mobile app, optimized for online/offline use over Bluetooth.</li>
+              <li>Built the application end-to-end as a fullstack developer, focused on scalability and maintainability.</li>
+              <li>Built a 3D visualization app for the oil &amp; gas industry (WebGL + Three.js) with zoom, rotate, and slice interactions for pipeline deposit data.</li>
+            </ul>
+            <div class="tag-row">
+              <span class="tag">IoT</span>
+              <span class="tag">Bluetooth</span>
+              <span class="tag">WebGL</span>
+              <span class="tag">Three.js</span>
+              <span class="tag">React Native</span>
+            </div>
+          </li>
+
+          <li class="timeline__item">
+            <div class="timeline__head">
+              <span class="timeline__role">Software Engineer</span>
+              <a class="timeline__org" href="https://zool.in/" target="_blank" rel="noopener">Zool Technology</a>
+            </div>
+            <p class="timeline__meta">Jun 2015 – Jan 2019</p>
+            <ul class="timeline__list">
+              <li>Developed and maintained responsive web applications across browsers and devices.</li>
+              <li>Built dynamic user interfaces with HTML, CSS, and JavaScript.</li>
+              <li>Integrated third-party APIs and libraries to extend site functionality.</li>
+            </ul>
+            <div class="tag-row">
+              <span class="tag">JavaScript</span>
+              <span class="tag">Responsive Web</span>
+              <span class="tag">API Integration</span>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================= PROJECTS ============================= -->
+    <section id="projects" aria-labelledby="projects-heading">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow">// Projects</p>
+          <h2 id="projects-heading">Things I've built</h2>
+        </div>
+
+        <div class="project-grid">
+          <article class="card">
+            <button class="card__trigger" type="button" data-modal="modal-rassik" aria-haspopup="dialog">
+              <div class="card__placeholder card__placeholder--logo">
+                <img src="images/rassik-logo.png" alt="Rassik logo" />
+              </div>
+              <div class="card__body">
+                <span class="badge badge--flagship">Own Product</span>
+                <div class="card__head">
+                  <h3 class="card__title">Rassik</h3>
+                  <span class="card__meta">Ongoing</span>
+                </div>
+                <p>A white-label music streaming platform — storefront, admin console, and native apps — that I designed, built, and deploy solo inside clients' own cloud, VPC, or on-prem infrastructure.</p>
+                <div class="tag-row">
+                  <span class="tag">Next.js</span>
+                  <span class="tag">Expo</span>
+                  <span class="tag">PostgreSQL</span>
+                  <span class="tag">Meilisearch</span>
+                  <span class="tag">Authentik/OIDC</span>
+                </div>
+              </div>
+            </button>
+          </article>
+
+          <article class="card">
+            <button class="card__trigger" type="button" data-modal="modal-diligent-minutes" aria-haspopup="dialog">
+              <img class="card__image" src="images/minutes-app1.webp" alt="Diligent Minutes web app interface" loading="lazy" />
+              <div class="card__body">
+                <div class="card__head">
+                  <h3 class="card__title">Diligent Minutes</h3>
+                  <span class="card__meta">2024–Present</span>
+                </div>
+                <p>Real-time collaborative meeting-minutes editor. Built the socket-based collaboration layer on a CKEditor backend, a Node.js microservice converting HTML to Word, and PDF export.</p>
+                <div class="tag-row">
+                  <span class="tag">React</span>
+                  <span class="tag">Node.js</span>
+                  <span class="tag">AG Grid</span>
+                  <span class="tag">WOPI</span>
+                  <span class="tag">Turborepo</span>
+                </div>
+              </div>
+            </button>
+          </article>
+
+          <article class="card">
+            <button class="card__trigger" type="button" data-modal="modal-dometic-interact" aria-haspopup="dialog">
+              <img class="card__image" src="images/dometic1.jpeg" alt="Dometic Interact IoT app screens" loading="lazy" />
+              <div class="card__body">
+                <div class="card__head">
+                  <h3 class="card__title">Dometic Interact</h3>
+                  <span class="card__meta">2019–2020</span>
+                </div>
+                <p>Remote control and monitoring app for caravan appliances (AC, heater, lights, fans) over Bluetooth, Wi-Fi, and cloud, with a custom protocol talking to an ESP32 microcontroller.</p>
+                <div class="tag-row">
+                  <span class="tag">React Native</span>
+                  <span class="tag">AWS IoT</span>
+                  <span class="tag">ESP32</span>
+                  <span class="tag">BLE</span>
+                </div>
+              </div>
+            </button>
+          </article>
+
+          <article class="card">
+            <button class="card__trigger" type="button" data-modal="modal-innerview" aria-haspopup="dialog">
+              <img class="card__image" src="images/innerView1.jpeg" alt="InnerView 3D pipeline visualization" loading="lazy" />
+              <div class="card__body">
+                <div class="card__head">
+                  <h3 class="card__title">InnerView — 3D Pipeline Visualization</h3>
+                  <span class="card__meta">2019–2020</span>
+                </div>
+                <p>Built for a Halliburton client in the oil &amp; gas industry: a full 3D view of pipeline deposits with zoom, slice, rotate, and fly-through interaction.</p>
+                <div class="tag-row">
+                  <span class="tag">WebGL</span>
+                  <span class="tag">Three.js</span>
+                  <span class="tag">Angular</span>
+                </div>
+              </div>
+            </button>
+          </article>
+
+          <article class="card">
+            <button class="card__trigger" type="button" data-modal="modal-one-airtel" aria-haspopup="dialog">
+              <div class="card__placeholder" aria-hidden="true">One Airtel</div>
+              <div class="card__body">
+                <div class="card__head">
+                  <h3 class="card__title">One Airtel</h3>
+                  <span class="card__meta">2023</span>
+                </div>
+                <p>Bundling &amp; cross-sell platform unifying Airtel's Postpaid, Broadband, and DTH accounts under a single connection.</p>
+                <div class="tag-row">
+                  <span class="tag">React</span>
+                  <span class="tag">Redux</span>
+                  <span class="tag">TypeScript</span>
+                </div>
+              </div>
+            </button>
+          </article>
+
+          <article class="card" id="project-3d">
+            <div class="card__placeholder" aria-hidden="true">D3.js + Three.js</div>
+            <div class="card__body">
+              <span class="badge">Experiment</span>
+              <div class="card__head">
+                <h3 class="card__title"><a href="interactive/index.html">Interactive 3D Resume</a></h3>
+              </div>
+              <p>This resume, reimagined as an explorable D3.js force-graph with a Three.js character that tracks your cursor. Built for fun — the plain-text version above is the one built for recruiters.</p>
+              <div class="tag-row">
+                <span class="tag">D3.js</span>
+                <span class="tag">Three.js</span>
+                <span class="tag">WebGL</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= PROJECT DETAIL MODALS ============================= -->
+    <div class="modal-backdrop" id="modal-backdrop" hidden></div>
+
+    <div class="modal" id="modal-rassik" role="dialog" aria-modal="true" aria-labelledby="modal-rassik-title" hidden>
+      <div class="modal__panel">
+        <button class="modal__close" type="button" data-modal-close aria-label="Close">&times;</button>
+        <div class="modal__gallery modal__gallery--empty">
+          <div class="card__placeholder card__placeholder--logo" style="aspect-ratio:21/9;">
+            <img src="images/rassik-logo.png" alt="Rassik logo" />
+          </div>
+        </div>
+        <div class="modal__body">
+          <span class="badge badge--flagship">Own Product</span>
+          <h3 id="modal-rassik-title">Rassik</h3>
+          <p class="modal__meta">My role: Founder &amp; Builder (solo)</p>
+          <p>A complete, white-label music streaming platform — storefront, admin console, and native iOS/Android apps — for record labels, streaming entrepreneurs, and media companies who want their own branded service without building one from scratch. Unlike a hosted SaaS, every deployment runs inside the client's own cloud, VPC, or on-premises infrastructure — never on Rassik's servers.</p>
+          <p class="modal__label">What I built</p>
+          <ul>
+            <li>Designed and built the full platform solo: a Next.js storefront, an admin console, and iOS/Android apps from a single Expo codebase, all sharing one catalog and API client.</li>
+            <li>Architected the self-hosted deployment model — Docker Compose + Traefik, with enforced HTTPS, security headers, and per-route rate limits, running entirely inside a client's own infrastructure.</li>
+            <li>Built Meilisearch-backed instant search, Authentik/OIDC single sign-on, and an S3-compatible storage layer for audio and artwork.</li>
+            <li>Wired Prometheus metrics and Jaeger tracing into every service for production observability.</li>
+            <li>Designed the customization layer — branding, catalog &amp; licensing rules, subscription models, roles &amp; permissions, and localization — so each deployment is shaped to the client's business without forking the codebase.</li>
+            <li>Handle every deployment end-to-end myself, from environment review through go-live and support — no sales team, no ticket queue.</li>
+          </ul>
+          <p class="modal__label">Tech stack</p>
+          <div class="tag-row">
+            <span class="tag">Next.js</span><span class="tag">Expo</span><span class="tag">PostgreSQL</span>
+            <span class="tag">Prisma</span><span class="tag">Meilisearch</span><span class="tag">Authentik/OIDC</span>
+            <span class="tag">S3-compatible storage</span><span class="tag">Prometheus</span><span class="tag">Jaeger</span>
+            <span class="tag">Docker Compose</span><span class="tag">Traefik</span>
+          </div>
+          <a class="chip chip--accent" style="margin-top:1.2rem;" href="https://erssrm.github.io/rassik-branding/" target="_blank" rel="noopener">Visit Rassik ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="modal-diligent-minutes" role="dialog" aria-modal="true" aria-labelledby="modal-diligent-minutes-title" hidden>
+      <div class="modal__panel">
+        <button class="modal__close" type="button" data-modal-close aria-label="Close">&times;</button>
+        <div class="modal__gallery">
+          <img src="images/minutes-app1.webp" alt="Diligent Minutes editor view" loading="lazy" />
+          <img src="images/minutes-app2.webp" alt="Diligent Minutes collaboration tools" loading="lazy" />
+          <img src="images/minutes-app4.webp" alt="Diligent Minutes review flow" loading="lazy" />
+          <img src="images/minutes-app5.webp" alt="Diligent Minutes export view" loading="lazy" />
+        </div>
+        <div class="modal__body">
+          <span class="badge">2024 – Present</span>
+          <h3 id="modal-diligent-minutes-title">Diligent Minutes</h3>
+          <p class="modal__meta">My role: Team Lead</p>
+          <p>A real-time collaborative meeting-minutes editor for boards, used to draft, edit, and export official minutes together.</p>
+          <p class="modal__label">What I contributed</p>
+          <ul>
+            <li>Led the team as Team Lead, owning delivery of the editor's real-time collaboration layer.</li>
+            <li>Built the real-time collaboration feature using socket connections for event capturing on a CKEditor backend.</li>
+            <li>Extended editor functionality with pen, highlighter, link insertion, and list-creation tools.</li>
+            <li>Built a Node.js microservice converting HTML documents into Word-format templates.</li>
+            <li>Implemented PDF export of meeting minutes using the docx library.</li>
+            <li>Set up Docker and GitHub Actions in the CI pipeline alongside Jest/Cypress test coverage.</li>
+          </ul>
+          <p class="modal__label">Tech stack</p>
+          <div class="tag-row">
+            <span class="tag">React</span><span class="tag">Redux</span><span class="tag">Storybook</span>
+            <span class="tag">Material UI</span><span class="tag">Node.js</span><span class="tag">AG Grid</span>
+            <span class="tag">DOCX</span><span class="tag">WOPI</span><span class="tag">Turborepo</span>
+            <span class="tag">Jest</span><span class="tag">Cypress</span><span class="tag">Docker</span>
+            <span class="tag">GitHub Actions</span>
+          </div>
+          <a class="chip chip--accent" style="margin-top:1.2rem;" href="https://www.diligent.com/features/boards/boards-minutes" target="_blank" rel="noopener">Visit Diligent Minutes ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="modal-dometic-interact" role="dialog" aria-modal="true" aria-labelledby="modal-dometic-interact-title" hidden>
+      <div class="modal__panel">
+        <button class="modal__close" type="button" data-modal-close aria-label="Close">&times;</button>
+        <div class="modal__gallery">
+          <img src="images/dometic1.jpeg" alt="Dometic Interact app screen 1" loading="lazy" />
+          <img src="images/dometic2.jpeg" alt="Dometic Interact app screen 2" loading="lazy" />
+          <img src="images/dometic3.webp" alt="Dometic Interact app screen 3" loading="lazy" />
+        </div>
+        <div class="modal__body">
+          <span class="badge">Nov 2019 – Oct 2020</span>
+          <h3 id="modal-dometic-interact-title">Dometic Interact</h3>
+          <p class="modal__meta">My role: Sr. Frontend Developer</p>
+          <p>Remote control and monitoring app for caravan appliances — AC, heater, lights, and fans — across Bluetooth, Wi-Fi, and cloud communication modes.</p>
+          <p class="modal__label">What I contributed</p>
+          <ul>
+            <li>Designed a multi-mode communication stack (BLE, Wi-Fi, Cloud) with WebSocket + ESP32 BLE integration for seamless local/remote switching, improving device-connection reliability by ~40%.</li>
+            <li>Developed a custom microcontroller communication protocol for ESP32 for low-latency data transmission between the app and IoT devices.</li>
+            <li>Implemented state management with Redux and serverless REST APIs on AWS IoT.</li>
+          </ul>
+          <p class="modal__label">Tech stack</p>
+          <div class="tag-row">
+            <span class="tag">React Native</span><span class="tag">Redux</span><span class="tag">AWS IoT</span>
+            <span class="tag">Serverless</span><span class="tag">ESP32</span><span class="tag">BLE</span>
+            <span class="tag">WebSocket</span>
+          </div>
+          <a class="chip chip--accent" style="margin-top:1.2rem;" href="https://play.google.com/store/apps/details?id=com.dometicapp&pli=1" target="_blank" rel="noopener">View on Play Store ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="modal-innerview" role="dialog" aria-modal="true" aria-labelledby="modal-innerview-title" hidden>
+      <div class="modal__panel">
+        <button class="modal__close" type="button" data-modal-close aria-label="Close">&times;</button>
+        <div class="modal__gallery">
+          <img src="images/innerView1.jpeg" alt="InnerView 3D pipeline visualization screen 1" loading="lazy" />
+          <img src="images/innerView2.jpeg" alt="InnerView 3D pipeline visualization screen 2" loading="lazy" />
+          <img src="images/innerView3.jpeg" alt="InnerView 3D pipeline visualization screen 3" loading="lazy" />
+          <img src="images/innerView4.jpeg" alt="InnerView 3D pipeline visualization screen 4" loading="lazy" />
+        </div>
+        <div class="modal__body">
+          <span class="badge">Mar 2019 – Oct 2020</span>
+          <h3 id="modal-innerview-title">InnerView — 3D Pipeline Visualization</h3>
+          <p class="modal__meta">My role: Sr. Frontend Developer</p>
+          <p>Built for a Halliburton client in the oil &amp; gas industry: a full 3D view of pipeline deposits with zoom, slice, rotate, and fly-through interaction for detailed inspection.</p>
+          <p class="modal__label">What I contributed</p>
+          <ul>
+            <li>Built the full 3D rendering engine with WebGL + Three.js to visualize internal pipeline depositions.</li>
+            <li>Implemented zoom, slice, rotate, and fly-through interactions for detailed inspection.</li>
+            <li>Mentored junior developers on 3D graphics rendering and modular component architecture.</li>
+          </ul>
+          <p class="modal__label">Tech stack</p>
+          <div class="tag-row">
+            <span class="tag">WebGL</span><span class="tag">Three.js</span><span class="tag">Angular</span><span class="tag">A-Frame</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="modal-one-airtel" role="dialog" aria-modal="true" aria-labelledby="modal-one-airtel-title" hidden>
+      <div class="modal__panel">
+        <button class="modal__close" type="button" data-modal-close aria-label="Close">&times;</button>
+        <div class="modal__gallery modal__gallery--empty">
+          <div class="card__placeholder" aria-hidden="true">One Airtel</div>
+        </div>
+        <div class="modal__body">
+          <span class="badge">2023</span>
+          <h3 id="modal-one-airtel-title">One Airtel</h3>
+          <p class="modal__meta">My role: Sr. Frontend Developer</p>
+          <p>A bundling and cross-sell platform that unified Airtel's Postpaid, Broadband, and DTH accounts under a single connection.</p>
+          <p class="modal__label">What I contributed</p>
+          <ul>
+            <li>Contributed as senior frontend developer to the bundling/cross-sell platform unifying multiple Airtel account types.</li>
+            <li>Built the UI with React, Redux, and TypeScript, backed by Jest test coverage.</li>
+          </ul>
+          <p class="modal__label">Tech stack</p>
+          <div class="tag-row">
+            <span class="tag">React</span><span class="tag">Redux</span><span class="tag">TypeScript</span><span class="tag">Jest</span>
+          </div>
+          <a class="chip chip--accent" style="margin-top:1.2rem;" href="https://www.airtel.in/airtel-black/" target="_blank" rel="noopener">Visit Airtel Black ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================= SKILLS ============================= -->
+    <section id="skills" aria-labelledby="skills-heading">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow">// Skills</p>
+          <h2 id="skills-heading">What I work with</h2>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3>Fullstack web</h3>
+            <div class="tag-row">
+              <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span>
+              <span class="tag">TypeScript</span><span class="tag">React.js</span><span class="tag">Redux</span>
+              <span class="tag">Node.js</span><span class="tag">Express.js</span><span class="tag">GraphQL</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>Data &amp; cloud</h3>
+            <div class="tag-row">
+              <span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">MongoDB</span>
+              <span class="tag">AWS</span><span class="tag">AWS IoT</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>Mobile</h3>
+            <div class="tag-row">
+              <span class="tag">React Native</span><span class="tag">Ionic</span>
+              <span class="tag">Android</span><span class="tag">iOS</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>Testing &amp; CI/CD</h3>
+            <div class="tag-row">
+              <span class="tag">Jest</span><span class="tag">Cypress</span><span class="tag">Playwright</span>
+              <span class="tag">Postman</span><span class="tag">GitHub Actions</span><span class="tag">SonarQube</span>
+              <span class="tag">Docker</span><span class="tag">Kubernetes</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>3D &amp; graphics</h3>
+            <div class="tag-row">
+              <span class="tag">Three.js</span><span class="tag">WebGL</span><span class="tag">D3.js</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>Leadership</h3>
+            <div class="tag-row">
+              <span class="tag">Team Management</span><span class="tag">Agile / Scrum</span>
+              <span class="tag">Sprint Planning</span><span class="tag">Architecture &amp; Design</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= EDUCATION ============================= -->
+    <section id="education" aria-labelledby="education-heading">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow">// Education</p>
+          <h2 id="education-heading">Academic background</h2>
+        </div>
+
+        <ul class="edu-list">
+          <li>
+            <p class="edu-item__degree">Executive Master of Technology (EMTech), Big Data &amp; Blockchain Development</p>
+            <p class="edu-item__meta">Indian Institute of Technology, Patna · Sep 2023 – Apr 2025</p>
+            <div class="tag-row">
+              <span class="tag">Distributed Systems</span><span class="tag">Cryptography</span>
+              <span class="tag">Machine Learning</span><span class="tag">DApps</span>
+            </div>
+          </li>
+          <li>
+            <p class="edu-item__degree">Bachelor of Technology (BTech), Computer Science</p>
+            <p class="edu-item__meta">Biju Patnaik University of Technology, Rourkela, Odisha · Mar 2010 – Apr 2014</p>
+            <div class="tag-row">
+              <span class="tag">Data Structures</span><span class="tag">Algorithms</span>
+              <span class="tag">Computer Networks</span><span class="tag">Operating Systems</span>
+              <span class="tag">Database Management Systems</span>
+            </div>
+          </li>
+          <li>
+            <p class="edu-item__degree">Intermediate, Science</p>
+            <p class="edu-item__meta">Council of Higher Secondary Education, Odisha · Mar 2008 – Apr 2010</p>
+          </li>
+          <li>
+            <p class="edu-item__degree">High School</p>
+            <p class="edu-item__meta">Board of Secondary Education, Odisha · Mar 2005 – Mar 2008</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================= CONTACT ============================= -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow">// Contact</p>
+          <h2 id="contact-heading">Let's talk</h2>
+        </div>
+        <p style="max-width:60ch;">
+          Open to fullstack, tech lead, and founding-engineer roles. The fastest way to reach me is email.
+        </p>
+        <div class="contact__grid">
+          <a class="chip chip--accent" href="mailto:er.ssrm@gmail.com">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18v12H3z"/><path d="m3 7 9 6 9-6"/></svg>
+            er.ssrm@gmail.com
+          </a>
+          <a class="chip" href="https://wa.me/917204995711" target="_blank" rel="noopener">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            +91 72049 95711 (WhatsApp)
+          </a>
+          <a class="chip" href="https://www.linkedin.com/in/erssrm" target="_blank" rel="noopener">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="3.5"/><line x1="7" y1="10.5" x2="7" y2="17"/><circle cx="7" cy="6.8" r="1.1" fill="currentColor" stroke="none"/><path d="M11 17v-4.2c0-1.5 1-2.6 2.5-2.6s2.5 1.1 2.5 2.6V17"/></svg>
+            linkedin.com/in/erssrm
+          </a>
+          <a class="chip" href="https://github.com/erssrm" target="_blank" rel="noopener">
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+            github.com/erssrm
+          </a>
+          <span class="chip">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            Bengaluru, Karnataka, India
+          </span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="current-year">2026</span> Smruti Ranjan Mohanta. Built with plain HTML, CSS &amp; JS.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 
 </html>
